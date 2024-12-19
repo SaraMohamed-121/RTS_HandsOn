@@ -89,7 +89,7 @@
 #define configUSE_TICK_HOOK			0
 #define configCPU_CLOCK_HZ			( ( unsigned long ) 8000000 )
 #define configTICK_RATE_HZ			( ( TickType_t ) 1000 )
-#define configMAX_PRIORITIES		( 3 )
+#define configMAX_PRIORITIES		( 4 )
 #define configMINIMAL_STACK_SIZE	( ( unsigned short ) 85 )
 #define configTOTAL_HEAP_SIZE		( (size_t ) ( 1500 ) )
 #define configMAX_TASK_NAME_LEN		( 8 )
@@ -116,4 +116,7 @@ to exclude the API function. */
 #define INCLUDE_xTimerGetTimerDaemonTaskHandle	1
 #define INCLUDE_xTaskGetIdleTaskHandle			1
 #define INCLUDE_pcTaskGetTaskName				1
+#define INCLUDE_eTaskGetState					1
+#define INCLUDE_xSemaphoreGetMutexHolder		1
+#define INCLUDE_xTaskResumeFromISR             1
 #endif /* FREERTOS_CONFIG_H */

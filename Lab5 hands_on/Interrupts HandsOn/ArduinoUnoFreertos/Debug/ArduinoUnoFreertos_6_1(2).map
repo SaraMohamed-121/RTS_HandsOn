@@ -62,7 +62,7 @@ Discarded input sections
                 0x00000000       0x38 Source/croutine.o
  .debug_ranges  0x00000000       0x28 Source/croutine.o
  .debug_line    0x00000000      0x246 Source/croutine.o
- .debug_str     0x00000000      0x57f Source/croutine.o
+ .debug_str     0x00000000      0x57e Source/croutine.o
  .comment       0x00000000       0x31 Source/croutine.o
  .debug_frame   0x00000000       0xc0 Source/croutine.o
  .text          0x00000000        0x0 Source/event_groups.o
@@ -93,7 +93,7 @@ Discarded input sections
                 0x00000000       0x60 Source/event_groups.o
  .debug_ranges  0x00000000       0x68 Source/event_groups.o
  .debug_line    0x00000000      0x2c0 Source/event_groups.o
- .debug_str     0x00000000      0x5cf Source/event_groups.o
+ .debug_str     0x00000000      0x5ce Source/event_groups.o
  .comment       0x00000000       0x31 Source/event_groups.o
  .debug_frame   0x00000000      0x158 Source/event_groups.o
  .text          0x00000000        0x0 Source/list.o
@@ -114,6 +114,8 @@ Discarded input sections
  .text          0x00000000        0x0 Source/queue.o
  .data          0x00000000        0x0 Source/queue.o
  .bss           0x00000000        0x0 Source/queue.o
+ .text.xQueueGetMutexHolder
+                0x00000000       0x20 Source/queue.o
  .text.xQueueGenericSend
                 0x00000000      0x142 Source/queue.o
  .text.xQueueCreateMutex
@@ -147,6 +149,8 @@ Discarded input sections
  .bss           0x00000000        0x0 Source/tasks.o
  .text.vTaskDelete
                 0x00000000       0x8e Source/tasks.o
+ .text.eTaskGetState
+                0x00000000       0x6e Source/tasks.o
  .text.uxTaskPriorityGet
                 0x00000000       0x1c Source/tasks.o
  .text.uxTaskPriorityGetFromISR
@@ -199,13 +203,11 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 Source/timers.o
  .debug_line    0x00000000       0x1a Source/timers.o
- .debug_str     0x00000000      0x1ac Source/timers.o
+ .debug_str     0x00000000      0x1ab Source/timers.o
  .comment       0x00000000       0x31 Source/timers.o
  .text          0x00000000        0x0 Source/WInterrupts.o
  .data          0x00000000        0x0 Source/WInterrupts.o
  .bss           0x00000000        0x0 Source/WInterrupts.o
- .text.attachInterrupt
-                0x00000000       0x46 Source/WInterrupts.o
  .text.detachInterrupt
                 0x00000000       0x26 Source/WInterrupts.o
  .text          0x00000000        0x0 USART/USART.o
@@ -392,7 +394,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1780
+.text           0x00000000     0x17ce
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -478,145 +480,148 @@ END GROUP
                 0x000000a6       0x78 ArduinoUnoFreertos.o
  .text.vGetNextTrack
                 0x0000011e       0x98 ArduinoUnoFreertos.o
- .text.main     0x000001b6       0x60 ArduinoUnoFreertos.o
+ .text.main     0x000001b6       0x5e ArduinoUnoFreertos.o
                 0x000001b6                main
  .text.vListInitialise
-                0x00000216       0x1c Source/list.o
-                0x00000216                vListInitialise
+                0x00000214       0x1c Source/list.o
+                0x00000214                vListInitialise
  .text.vListInitialiseItem
-                0x00000232        0x8 Source/list.o
-                0x00000232                vListInitialiseItem
+                0x00000230        0x8 Source/list.o
+                0x00000230                vListInitialiseItem
  .text.vListInsertEnd
-                0x0000023a       0x42 Source/list.o
-                0x0000023a                vListInsertEnd
+                0x00000238       0x42 Source/list.o
+                0x00000238                vListInsertEnd
  .text.vListInsert
-                0x0000027c       0x62 Source/list.o
-                0x0000027c                vListInsert
+                0x0000027a       0x62 Source/list.o
+                0x0000027a                vListInsert
  .text.uxListRemove
-                0x000002de       0x4c Source/list.o
-                0x000002de                uxListRemove
+                0x000002dc       0x4c Source/list.o
+                0x000002dc                uxListRemove
  .text.pxPortInitialiseStack
-                0x0000032a       0xd8 Source/portable/GCC/Atmega328p/port.o
-                0x0000032a                pxPortInitialiseStack
+                0x00000328       0xd8 Source/portable/GCC/Atmega328p/port.o
+                0x00000328                pxPortInitialiseStack
  .text.xPortStartScheduler
-                0x00000402       0x74 Source/portable/GCC/Atmega328p/port.o
-                0x00000402                xPortStartScheduler
+                0x00000400       0x74 Source/portable/GCC/Atmega328p/port.o
+                0x00000400                xPortStartScheduler
  .text.vPortYield
-                0x00000476       0xb2 Source/portable/GCC/Atmega328p/port.o
-                0x00000476                vPortYield
+                0x00000474       0xb2 Source/portable/GCC/Atmega328p/port.o
+                0x00000474                vPortYield
  .text.vPortYieldFromTick
-                0x00000528       0xb8 Source/portable/GCC/Atmega328p/port.o
-                0x00000528                vPortYieldFromTick
+                0x00000526       0xb8 Source/portable/GCC/Atmega328p/port.o
+                0x00000526                vPortYieldFromTick
  .text.__vector_11
-                0x000005e0        0x6 Source/portable/GCC/Atmega328p/port.o
-                0x000005e0                __vector_11
+                0x000005de        0x6 Source/portable/GCC/Atmega328p/port.o
+                0x000005de                __vector_11
  .text.pvPortMalloc
-                0x000005e6      0x134 Source/portable/MemMang/heap_2.o
-                0x000005e6                pvPortMalloc
+                0x000005e4      0x134 Source/portable/MemMang/heap_2.o
+                0x000005e4                pvPortMalloc
  .text.vPortFree
-                0x0000071a       0x66 Source/portable/MemMang/heap_2.o
-                0x0000071a                vPortFree
+                0x00000718       0x66 Source/portable/MemMang/heap_2.o
+                0x00000718                vPortFree
  .text.prvCopyDataToQueue
-                0x00000780       0xc4 Source/queue.o
+                0x0000077e       0xc4 Source/queue.o
  .text.prvCopyDataFromQueue
-                0x00000844       0x34 Source/queue.o
+                0x00000842       0x34 Source/queue.o
  .text.prvUnlockQueue
-                0x00000878       0x98 Source/queue.o
+                0x00000876       0x98 Source/queue.o
  .text.xQueueGenericReset
-                0x00000910       0x7a Source/queue.o
-                0x00000910                xQueueGenericReset
+                0x0000090e       0x7a Source/queue.o
+                0x0000090e                xQueueGenericReset
  .text.xQueueGenericCreate
-                0x0000098a       0x58 Source/queue.o
-                0x0000098a                xQueueGenericCreate
+                0x00000988       0x58 Source/queue.o
+                0x00000988                xQueueGenericCreate
  .text.xQueueGenericSendFromISR
-                0x000009e2       0x70 Source/queue.o
-                0x000009e2                xQueueGenericSendFromISR
+                0x000009e0       0x70 Source/queue.o
+                0x000009e0                xQueueGenericSendFromISR
  .text.xQueueGenericReceive
-                0x00000a52      0x186 Source/queue.o
-                0x00000a52                xQueueGenericReceive
+                0x00000a50      0x186 Source/queue.o
+                0x00000a50                xQueueGenericReceive
  .text.uxQueueMessagesWaiting
-                0x00000bd8       0x10 Source/queue.o
-                0x00000bd8                uxQueueMessagesWaiting
+                0x00000bd6       0x10 Source/queue.o
+                0x00000bd6                uxQueueMessagesWaiting
  .text.prvResetNextTaskUnblockTime
-                0x00000be8       0x3e Source/tasks.o
+                0x00000be6       0x3e Source/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x00000c26       0x6e Source/tasks.o
+                0x00000c24       0x6e Source/tasks.o
  .text.xTaskGenericCreate
-                0x00000c94      0x21c Source/tasks.o
-                0x00000c94                xTaskGenericCreate
+                0x00000c92      0x226 Source/tasks.o
+                0x00000c92                xTaskGenericCreate
  .text.vTaskStartScheduler
-                0x00000eb0       0x5e Source/tasks.o
-                0x00000eb0                vTaskStartScheduler
+                0x00000eb8       0x5e Source/tasks.o
+                0x00000eb8                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x00000f0e        0xc Source/tasks.o
-                0x00000f0e                vTaskSuspendAll
+                0x00000f16        0xc Source/tasks.o
+                0x00000f16                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x00000f1a       0x14 Source/tasks.o
-                0x00000f1a                xTaskGetTickCount
+                0x00000f22       0x14 Source/tasks.o
+                0x00000f22                xTaskGetTickCount
  .text.xTaskGetTickCountFromISR
-                0x00000f2e        0xa Source/tasks.o
-                0x00000f2e                xTaskGetTickCountFromISR
+                0x00000f36        0xa Source/tasks.o
+                0x00000f36                xTaskGetTickCountFromISR
  .text.xTaskIncrementTick
-                0x00000f38      0x17a Source/tasks.o
-                0x00000f38                xTaskIncrementTick
+                0x00000f40      0x17a Source/tasks.o
+                0x00000f40                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x000010b2      0x104 Source/tasks.o
-                0x000010b2                xTaskResumeAll
+                0x000010ba      0x104 Source/tasks.o
+                0x000010ba                xTaskResumeAll
  .text.vTaskDelayUntil
-                0x000011b6       0x84 Source/tasks.o
-                0x000011b6                vTaskDelayUntil
+                0x000011be       0x84 Source/tasks.o
+                0x000011be                vTaskDelayUntil
  .text.prvIdleTask
-                0x0000123a       0x7a Source/tasks.o
+                0x00001242       0x7a Source/tasks.o
  .text.vTaskSwitchContext
-                0x000012b4       0xda Source/tasks.o
-                0x000012b4                vTaskSwitchContext
+                0x000012bc       0xda Source/tasks.o
+                0x000012bc                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x0000138e       0x5a Source/tasks.o
-                0x0000138e                vTaskPlaceOnEventList
+                0x00001396       0x5a Source/tasks.o
+                0x00001396                vTaskPlaceOnEventList
  .text.xTaskRemoveFromEventList
-                0x000013e8       0x90 Source/tasks.o
-                0x000013e8                xTaskRemoveFromEventList
+                0x000013f0       0x90 Source/tasks.o
+                0x000013f0                xTaskRemoveFromEventList
  .text.vTaskSetTimeOutState
-                0x00001478       0x16 Source/tasks.o
-                0x00001478                vTaskSetTimeOutState
+                0x00001480       0x16 Source/tasks.o
+                0x00001480                vTaskSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x0000148e       0x72 Source/tasks.o
-                0x0000148e                xTaskCheckForTimeOut
+                0x00001496       0x72 Source/tasks.o
+                0x00001496                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x00001500        0x8 Source/tasks.o
-                0x00001500                vTaskMissedYield
+                0x00001508        0x8 Source/tasks.o
+                0x00001508                vTaskMissedYield
  .text.vTaskPriorityInherit
-                0x00001508       0xc4 Source/tasks.o
-                0x00001508                vTaskPriorityInherit
+                0x00001510       0xc4 Source/tasks.o
+                0x00001510                vTaskPriorityInherit
  .text.xTaskPriorityDisinherit
-                0x000015cc       0x80 Source/tasks.o
-                0x000015cc                xTaskPriorityDisinherit
+                0x000015d4       0x80 Source/tasks.o
+                0x000015d4                xTaskPriorityDisinherit
  .text.pvTaskIncrementMutexHeldCount
-                0x0000164c       0x24 Source/tasks.o
-                0x0000164c                pvTaskIncrementMutexHeldCount
+                0x00001654       0x24 Source/tasks.o
+                0x00001654                pvTaskIncrementMutexHeldCount
+ .text.attachInterrupt
+                0x00001678       0x46 Source/WInterrupts.o
+                0x00001678                attachInterrupt
  .text.__vector_1
-                0x00001670       0x5a Source/WInterrupts.o
-                0x00001670                __vector_1
+                0x000016be       0x5a Source/WInterrupts.o
+                0x000016be                __vector_1
  .text.__vector_2
-                0x000016ca       0x5a Source/WInterrupts.o
-                0x000016ca                __vector_2
+                0x00001718       0x5a Source/WInterrupts.o
+                0x00001718                __vector_2
  .text.USART_init
-                0x00001724       0x18 USART/USART.o
-                0x00001724                USART_init
+                0x00001772       0x18 USART/USART.o
+                0x00001772                USART_init
  .text.USART_send
-                0x0000173c       0x10 USART/USART.o
-                0x0000173c                USART_send
+                0x0000178a       0x10 USART/USART.o
+                0x0000178a                USART_send
  .text.USART_sendstr
-                0x0000174c       0x1e USART/USART.o
-                0x0000174c                USART_sendstr
+                0x0000179a       0x1e USART/USART.o
+                0x0000179a                USART_sendstr
  .text.avr-libc
-                0x0000176a       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(memcpy.o)
-                0x0000176a                memcpy
-                0x0000177c                . = ALIGN (0x2)
+                0x000017b8       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(memcpy.o)
+                0x000017b8                memcpy
+                0x000017ca                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000177c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x0000177c                _exit
-                0x0000177c                exit
+ .fini9         0x000017ca        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000017ca                _exit
+                0x000017ca                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -635,11 +640,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000177c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000017ca        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001780                _etext = .
+                0x000017ce                _etext = .
 
-.data           0x00800100       0xe2 load address 0x00001780
+.data           0x00800100       0xe2 load address 0x000017ce
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -663,7 +668,7 @@ END GROUP
                 0x008001e2                _edata = .
                 0x008001e2                PROVIDE (__data_end, .)
 
-.bss            0x008001e2      0x64c
+.bss            0x008001e2      0x655
                 0x008001e2                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
@@ -712,25 +717,25 @@ END GROUP
  .bss.xDelayedTaskList1
                 0x008007fe        0x9 Source/tasks.o
  .bss.pxReadyTasksLists
-                0x00800807       0x1b Source/tasks.o
+                0x00800807       0x24 Source/tasks.o
  .bss.pxCurrentTCB
-                0x00800822        0x2 Source/tasks.o
-                0x00800822                pxCurrentTCB
- .bss.intFunc   0x00800824        0x4 Source/WInterrupts.o
+                0x0080082b        0x2 Source/tasks.o
+                0x0080082b                pxCurrentTCB
+ .bss.intFunc   0x0080082d        0x4 Source/WInterrupts.o
  *(COMMON)
- COMMON         0x00800828        0x6 ArduinoUnoFreertos.o
-                0x00800828                lastInterrupt
-                0x0080082c                xQueue
-                0x0080082e                PROVIDE (__bss_end, .)
-                0x00001780                __data_load_start = LOADADDR (.data)
-                0x00001862                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800831        0x6 ArduinoUnoFreertos.o
+                0x00800831                lastInterrupt
+                0x00800835                xQueue
+                0x00800837                PROVIDE (__bss_end, .)
+                0x000017ce                __data_load_start = LOADADDR (.data)
+                0x000018b0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080082e        0x0
-                0x0080082e                PROVIDE (__noinit_start, .)
+.noinit         0x00800837        0x0
+                0x00800837                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080082e                PROVIDE (__noinit_end, .)
-                0x0080082e                _end = .
-                0x0080082e                PROVIDE (__heap_start, .)
+                0x00800837                PROVIDE (__noinit_end, .)
+                0x00800837                _end = .
+                0x00800837                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -801,7 +806,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x398
+.debug_aranges  0x00000000      0x3a8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x30 ArduinoUnoFreertos.o
@@ -812,90 +817,90 @@ END GROUP
  .debug_aranges
                 0x000000b8       0x38 Source/portable/MemMang/heap_2.o
  .debug_aranges
-                0x000000f0       0xc8 Source/queue.o
+                0x000000f0       0xd0 Source/queue.o
  .debug_aranges
-                0x000001b8      0x170 Source/tasks.o
+                0x000001c0      0x178 Source/tasks.o
  .debug_aranges
-                0x00000328       0x38 Source/WInterrupts.o
+                0x00000338       0x38 Source/WInterrupts.o
  .debug_aranges
-                0x00000360       0x38 USART/USART.o
+                0x00000370       0x38 USART/USART.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x435d
+.debug_info     0x00000000     0x4444
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x61d ArduinoUnoFreertos.o
- .debug_info    0x0000061d      0x2c6 Source/list.o
- .debug_info    0x000008e3      0x261 Source/portable/GCC/Atmega328p/port.o
- .debug_info    0x00000b44      0x338 Source/portable/MemMang/heap_2.o
- .debug_info    0x00000e7c     0x13cb Source/queue.o
- .debug_info    0x00002247     0x1eb6 Source/tasks.o
- .debug_info    0x000040fd      0x155 Source/WInterrupts.o
- .debug_info    0x00004252      0x10b USART/USART.o
+ .debug_info    0x00000000      0x618 ArduinoUnoFreertos.o
+ .debug_info    0x00000618      0x2c6 Source/list.o
+ .debug_info    0x000008de      0x261 Source/portable/GCC/Atmega328p/port.o
+ .debug_info    0x00000b3f      0x338 Source/portable/MemMang/heap_2.o
+ .debug_info    0x00000e77     0x140b Source/queue.o
+ .debug_info    0x00002282     0x1f62 Source/tasks.o
+ .debug_info    0x000041e4      0x155 Source/WInterrupts.o
+ .debug_info    0x00004339      0x10b USART/USART.o
 
-.debug_abbrev   0x00000000      0xdd9
+.debug_abbrev   0x00000000      0xdc8
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x1f7 ArduinoUnoFreertos.o
- .debug_abbrev  0x000001f7       0xf8 Source/list.o
- .debug_abbrev  0x000002ef      0x167 Source/portable/GCC/Atmega328p/port.o
- .debug_abbrev  0x00000456      0x1cc Source/portable/MemMang/heap_2.o
- .debug_abbrev  0x00000622      0x2b5 Source/queue.o
- .debug_abbrev  0x000008d7      0x361 Source/tasks.o
- .debug_abbrev  0x00000c38       0xc1 Source/WInterrupts.o
- .debug_abbrev  0x00000cf9       0xe0 USART/USART.o
+ .debug_abbrev  0x00000000      0x1e6 ArduinoUnoFreertos.o
+ .debug_abbrev  0x000001e6       0xf8 Source/list.o
+ .debug_abbrev  0x000002de      0x167 Source/portable/GCC/Atmega328p/port.o
+ .debug_abbrev  0x00000445      0x1cc Source/portable/MemMang/heap_2.o
+ .debug_abbrev  0x00000611      0x2b5 Source/queue.o
+ .debug_abbrev  0x000008c6      0x361 Source/tasks.o
+ .debug_abbrev  0x00000c27       0xc1 Source/WInterrupts.o
+ .debug_abbrev  0x00000ce8       0xe0 USART/USART.o
 
-.debug_line     0x00000000     0x1592
+.debug_line     0x00000000     0x15e6
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x15e ArduinoUnoFreertos.o
- .debug_line    0x0000015e      0x15f Source/list.o
- .debug_line    0x000002bd      0x1ba Source/portable/GCC/Atmega328p/port.o
- .debug_line    0x00000477      0x200 Source/portable/MemMang/heap_2.o
- .debug_line    0x00000677      0x4e0 Source/queue.o
- .debug_line    0x00000b57      0x843 Source/tasks.o
- .debug_line    0x0000139a      0x111 Source/WInterrupts.o
- .debug_line    0x000014ab       0xe7 USART/USART.o
+ .debug_line    0x00000000      0x16a ArduinoUnoFreertos.o
+ .debug_line    0x0000016a      0x15f Source/list.o
+ .debug_line    0x000002c9      0x1ba Source/portable/GCC/Atmega328p/port.o
+ .debug_line    0x00000483      0x200 Source/portable/MemMang/heap_2.o
+ .debug_line    0x00000683      0x4f6 Source/queue.o
+ .debug_line    0x00000b79      0x875 Source/tasks.o
+ .debug_line    0x000013ee      0x111 Source/WInterrupts.o
+ .debug_line    0x000014ff       0xe7 USART/USART.o
 
-.debug_frame    0x00000000      0xb10
+.debug_frame    0x00000000      0xb30
  *(.debug_frame)
  .debug_frame   0x00000000       0x54 ArduinoUnoFreertos.o
  .debug_frame   0x00000054       0x88 Source/list.o
  .debug_frame   0x000000dc       0x74 Source/portable/GCC/Atmega328p/port.o
  .debug_frame   0x00000150       0x7c Source/portable/MemMang/heap_2.o
- .debug_frame   0x000001cc      0x2c8 Source/queue.o
- .debug_frame   0x00000494      0x538 Source/tasks.o
- .debug_frame   0x000009cc       0xe4 Source/WInterrupts.o
- .debug_frame   0x00000ab0       0x60 USART/USART.o
+ .debug_frame   0x000001cc      0x2d8 Source/queue.o
+ .debug_frame   0x000004a4      0x548 Source/tasks.o
+ .debug_frame   0x000009ec       0xe4 Source/WInterrupts.o
+ .debug_frame   0x00000ad0       0x60 USART/USART.o
 
-.debug_str      0x00000000     0x1453
+.debug_str      0x00000000     0x14c6
  *(.debug_str)
  .debug_str     0x00000000      0x392 ArduinoUnoFreertos.o
                                 0x3ea (size before relaxing)
  .debug_str     0x00000392      0x12e Source/list.o
-                                0x2e4 (size before relaxing)
+                                0x2e3 (size before relaxing)
  .debug_str     0x000004c0      0x10e Source/portable/GCC/Atmega328p/port.o
-                                0x2ff (size before relaxing)
+                                0x2fe (size before relaxing)
  .debug_str     0x000005ce      0x17e Source/portable/MemMang/heap_2.o
-                                0x347 (size before relaxing)
- .debug_str     0x0000074c      0x49b Source/queue.o
-                                0x7fd (size before relaxing)
- .debug_str     0x00000be7      0x7c0 Source/tasks.o
-                                0xd7a (size before relaxing)
- .debug_str     0x000013a7       0x7d Source/WInterrupts.o
-                                0x21e (size before relaxing)
- .debug_str     0x00001424       0x2f USART/USART.o
-                                0x1db (size before relaxing)
+                                0x346 (size before relaxing)
+ .debug_str     0x0000074c      0x4c4 Source/queue.o
+                                0x825 (size before relaxing)
+ .debug_str     0x00000c10      0x81a Source/tasks.o
+                                0xdd3 (size before relaxing)
+ .debug_str     0x0000142a       0x6d Source/WInterrupts.o
+                                0x21d (size before relaxing)
+ .debug_str     0x00001497       0x2f USART/USART.o
+                                0x1da (size before relaxing)
 
-.debug_loc      0x00000000     0x4495
+.debug_loc      0x00000000     0x45ff
  *(.debug_loc)
  .debug_loc     0x00000000       0xc0 ArduinoUnoFreertos.o
  .debug_loc     0x000000c0      0x145 Source/list.o
  .debug_loc     0x00000205      0x2ac Source/portable/GCC/Atmega328p/port.o
  .debug_loc     0x000004b1      0x2ef Source/portable/MemMang/heap_2.o
- .debug_loc     0x000007a0     0x1a6f Source/queue.o
- .debug_loc     0x0000220f     0x1fc4 Source/tasks.o
- .debug_loc     0x000041d3      0x214 Source/WInterrupts.o
- .debug_loc     0x000043e7       0xae USART/USART.o
+ .debug_loc     0x000007a0     0x1adf Source/queue.o
+ .debug_loc     0x0000227f     0x20be Source/tasks.o
+ .debug_loc     0x0000433d      0x214 Source/WInterrupts.o
+ .debug_loc     0x00004551       0xae USART/USART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -915,16 +920,16 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x390
+.debug_ranges   0x00000000      0x3a0
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x20 ArduinoUnoFreertos.o
  .debug_ranges  0x00000020       0x30 Source/list.o
  .debug_ranges  0x00000050       0x38 Source/portable/GCC/Atmega328p/port.o
  .debug_ranges  0x00000088       0x28 Source/portable/MemMang/heap_2.o
- .debug_ranges  0x000000b0       0xb8 Source/queue.o
- .debug_ranges  0x00000168      0x1d8 Source/tasks.o
- .debug_ranges  0x00000340       0x28 Source/WInterrupts.o
- .debug_ranges  0x00000368       0x28 USART/USART.o
+ .debug_ranges  0x000000b0       0xc0 Source/queue.o
+ .debug_ranges  0x00000170      0x1e0 Source/tasks.o
+ .debug_ranges  0x00000350       0x28 Source/WInterrupts.o
+ .debug_ranges  0x00000378       0x28 USART/USART.o
 
 .debug_macro
  *(.debug_macro)
