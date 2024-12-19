@@ -20,7 +20,5 @@ Source\tasks.c
 
 Source\timers.c
 
-Source\WInterrupts.c
-
 USART\USART.c
 
