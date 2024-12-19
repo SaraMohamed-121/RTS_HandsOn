@@ -29,6 +29,10 @@
 
 
 ## Lab 6: [Synchronization]
+![image](https://github.com/user-attachments/assets/3f11d0f8-49ee-425f-8cac-25b0b1645206)
+![image](https://github.com/user-attachments/assets/f0179b1c-098e-4bd2-9baf-e0049a8e01c5)
+![image](https://github.com/user-attachments/assets/2216340c-f531-49cc-a9d6-d9b360314c19)
+
 
 
 
