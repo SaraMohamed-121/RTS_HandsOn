@@ -16,9 +16,13 @@ Source\portable\MemMang\heap_2.c
 
 Source\queue.c
 
+Source\supporting_functions.c
+
 Source\tasks.c
 
 Source\timers.c
+
+Source\WInterrupts.c
 
 USART\USART.c
 
