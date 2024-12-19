@@ -7,6 +7,7 @@
 #include "USART.h"
 #include "queue.h"
 
+//#include <Arduino.h> //Interrupt
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -32,7 +33,10 @@ int main(void)
 	// todo #1 
 	// 1. disable global interrupt
 	// 2. assign vGetNextTrack method to external Int0
-   USART_init();
+	cli();
+	attachIntruppt(0,vGetNextTrack,1);
+	USART_init();
+	//sei();
     /* The queue is created to hold a maximum of 5 long values. */
     xQueue = xQueueCreate(5, sizeof(char *));
 	if( xQueue != NULL )
@@ -59,8 +63,11 @@ static void vGetNextTrack()
   {
 	// todo #2
  	// 1. set lValueToSend to the right track
+	 lValueToSend=playList[playListIndex];
  	// 2. send lValueToSend to Queue using appropriate methods 'suffix by FromISR'
-    if( xStatus != pdPASS )
+    xQueueSendToBackFromISR(xQueue,lValueToSend,0);
+	
+	if( xStatus != pdPASS )
       USART_sendstr("Could not send to the queue.");
 	 		
     lastInterrupt = xTaskGetTickCountFromISR();
