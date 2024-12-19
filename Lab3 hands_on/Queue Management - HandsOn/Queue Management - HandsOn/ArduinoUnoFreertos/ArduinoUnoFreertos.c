@@ -32,7 +32,7 @@ int main( void )
     /* The queue is created to hold a maximum of 5 long values. 
     Create A Suitable Queue
      */
-	
+	xQueue=xQueueCreate(5,sizeof(void*));
 	if( xQueue != NULL ) // Queue Handler
 	{		////////////////////// To Do 2//////////////////////////////
 
@@ -41,18 +41,18 @@ int main( void )
 		so one task will continuously write 100 to the queue while the other task
 		will continuously write 200 to the queue.  Both tasks are created at
 		priority 1. */
-	
-
+		xTaskCreate(vSenderTask,"send1",100,"t1",1,NULL);
+		xTaskCreate(vSenderTask,"send2",100,"t2",1,NULL);
 		/*2. Create the task that will read from the queue.  The task is created with
 		priority 2, so above the priority of the sender tasks. */
-	
+	    xTaskCreate(vReceiverTask,"rec1",100,NULL,2,NULL);
 		/* Start the scheduler so the created tasks start executing. */
 		vTaskStartScheduler();
 	}
 	else
 	{
 		/* The queue could not be created. */
-		USART_sendstr("The queue could not be created");
+		USART_sendstr("The queue could not be created \r \n");
 	}
 
 	/* The following line should never be reached because vTaskStartScheduler()
@@ -76,7 +76,7 @@ BaseType_t xStatus;
 	lValueToSend =(char *)pvParameters;
 
 	/* As per most tasks, this task is implemented within an infinite loop. */
-		USART_sendstr("sender");
+		USART_sendstr("sender \r\n");
 		TickType_t xLastWakeTime = xTaskGetTickCount();
 	for( ;; )
 	{
@@ -84,6 +84,7 @@ BaseType_t xStatus;
 		/*
 		   Insert back the element in the Queue without waiting for available space.
 		*/
+		xStatus=xQueueSendToBack(xQueue,&lValueToSend,0);
 		if( xStatus != pdPASS )
 		{
 			/* We could not write to the queue because it was full – this must
@@ -116,6 +117,7 @@ const TickType_t xTicksToWait = pdMS_TO_TICKS( 99UL );
 		/*
 		   Receive the next element in the Queue and wait for a xTicksToWait for arriving at least one element.
 		*/
+		xStatus=xQueueReceive(xQueue,&lReceivedValue,xTicksToWait);
 		if( xStatus == pdPASS )
 		{
 			/* Data was successfully received from the queue, print out the received
