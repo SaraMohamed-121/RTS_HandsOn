@@ -25,14 +25,14 @@
 ## Lab 4: [Software Timer Management]
 
 ![image](https://github.com/user-attachments/assets/a8e39b28-dbcb-4b68-a8f3-395a633ae2b6)
-![image](https://github.com/user-attachments/assets/e3cd9b41-22ad-423f-b647-f25a6427ff1f)
-
+![image](https://github.com/user-attachments/assets/2994622c-1a26-456a-bde9-d2b12468eb3b)
 
 
 ## Lab 5: [Interrupts]
 
 ![image](https://github.com/user-attachments/assets/2150cd47-a214-47c7-bbbb-3bc59188651d)
-![image](https://github.com/user-attachments/assets/1060b5d6-2d89-463d-b1b8-b2798b032e37)
+![image](https://github.com/user-attachments/assets/43a00e2a-c00a-4bf0-ae1e-0b02e1307067)
+
 
 
 ## Lab 6: [Synchronization]
