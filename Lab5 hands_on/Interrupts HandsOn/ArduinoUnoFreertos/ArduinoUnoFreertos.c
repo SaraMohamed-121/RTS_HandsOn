@@ -48,7 +48,7 @@ int main(void)
 		vTaskStartScheduler();
 	}
 	else
-	USART_sendstr("The queue could not be created");
+		USART_sendstr("The queue could not be created");
 
 	for( ;; );
 	return 0;
@@ -67,10 +67,10 @@ static void vGetNextTrack()
 		// 1. set lValueToSend to the right track
 		lValueToSend=playList[playListIndex];
 		// 2. send lValueToSend to Queue using appropriate methods 'suffix by FromISR'
-		xQueueSendToBackFromISR(xQueue,lValueToSend,0);
+		xStatus=xQueueSendToBackFromISR(xQueue,lValueToSend,0);
 		
 		if( xStatus != pdPASS )
-		USART_sendstr("Could not send to the queue.");
+			USART_sendstr("Could not send to the queue.");
 		
 		lastInterrupt = xTaskGetTickCountFromISR();
 		
@@ -90,10 +90,10 @@ static void vReceiverTask( void *pvParameters )
 	TickType_t xLastWakeTime = xTaskGetTickCount();
 	for( ;; )
 	{
-		if( uxQueueMessagesWaiting( xQueue ) != 0 )
-		USART_sendstr("Queue should have been empty!\r\n");
+		//if( uxQueueMessagesWaiting(xQueue) == 0 )
+		//USART_sendstr("Queue is empty!\r\n");
 		
-		xStatus = xQueueReceive( xQueue, &lReceivedValue, xTicksToWait );
+		xStatus = xQueueReceive(xQueue, &lReceivedValue, xTicksToWait );
 		if( xStatus == pdPASS )
 		{
 			USART_sendstr("Received= system runs ");
